@@ -55,8 +55,15 @@ export const searchMovies = async (query) => {
 
 export const getMovieDetails = async (id) => {
   try {
-    const response = await apiClient.get(`/movie/${id}`);
-    return response.data;
+    const [movieDetailsResponse, videosResponse] = await Promise.all([
+      apiClient.get(`/movie/${id}`),
+      apiClient.get(`/movie/${id}/videos`)
+    ]);
+
+    const movieDetails = movieDetailsResponse.data;
+    const videos = videosResponse.data.results;
+
+    return { ...movieDetails, videos };
   } catch (error) {
     console.error('Error fetching movie details:', error);
     throw error;

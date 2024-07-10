@@ -4,7 +4,6 @@ import { getMovieDetails } from '../API/MovieApi';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExternalLinkAlt, faStar } from "@fortawesome/free-solid-svg-icons";
 
-
 const Moviedetailpage = () => {
     const [currentMovieDetail, setMovie] = useState(null);
     const { id } = useParams();
@@ -22,6 +21,14 @@ const Moviedetailpage = () => {
         fetchData();
         window.scrollTo(0, 0);
     }, [id]);
+
+    const fetchTrailer = (key) => {
+        if (key) {
+            window.open(`https://www.youtube.com/watch?v=${key}`, '_blank');
+        } else {
+            console.error("No trailer available");
+        }
+    };
 
     return (
         <div className="relative bg-gray-900 text-white">
@@ -45,37 +52,36 @@ const Moviedetailpage = () => {
                 </div>
             </div>
             <div className="max-w-4xl mx-auto px-4 py-8">
-                     <div className="flex-grow ">
-                                <div className="mb-4">
-                                    <h1 className="text-3xl md:text-5xl font-bold mb-2">{currentMovieDetail ? currentMovieDetail.original_title : ""}</h1>
-                                    <p className="text-lg italic mb-2">{currentMovieDetail ? currentMovieDetail.tagline : ""}</p>
-                                    <div className="flex items-center mb-2">
-                                        <span className="mr-2 text-yellow-400 text-xl">{currentMovieDetail ? currentMovieDetail.vote_average.toFixed(1) : ""}</span>
-                                        <FontAwesomeIcon icon={faStar} className="text-yellow-400 ml-1" />
-                                        <span className="ml-2">({currentMovieDetail ? currentMovieDetail.vote_count : ""} votes)</span>
-                                    </div>
-                                    <div className="text-sm text-gray-400 mb-2">{currentMovieDetail ? `${currentMovieDetail.runtime} mins` : ""}</div>
-                                    <div className="text-sm text-gray-400 mb-4">{currentMovieDetail ? `Release date: ${currentMovieDetail.release_date}` : ""}</div>
-                                    <div className="flex flex-wrap mb-4">
-                                        {currentMovieDetail && currentMovieDetail.genres ? (
-                                            currentMovieDetail.genres.map(genre => (
-                                                <span key={genre.id} className="border-2 border-white rounded-full px-2 py-1 mr-2 mb-2 text-sm">
-                                                    {genre.name}
-                                                </span>
-                                            ))
-                                        ) : (
-                                            ""
-                                        )}
-                                    </div>
-                                </div>
-                                <div>
-                                    <h2 className="text-xl font-bold mb-2">Synopsis</h2>
-                                    <p className="text-gray-300">{currentMovieDetail ? currentMovieDetail.overview : ""}</p>
-                                </div>
-                            </div>
+                <div className="flex-grow ">
+                    <div className="mb-4">
+                        <h1 className="text-3xl md:text-5xl font-bold mb-2">{currentMovieDetail ? currentMovieDetail.original_title : ""}</h1>
+                        <p className="text-lg italic mb-2">{currentMovieDetail ? currentMovieDetail.tagline : ""}</p>
+                        <div className="flex items-center mb-2">
+                            <span className="mr-2 text-yellow-400 text-xl">{currentMovieDetail ? currentMovieDetail.vote_average.toFixed(1) : ""}</span>
+                            <FontAwesomeIcon icon={faStar} className="text-yellow-400 ml-1" />
+                            <span className="ml-2">({currentMovieDetail ? currentMovieDetail.vote_count : ""} votes)</span>
+                        </div>
+                        <div className="text-sm text-gray-400 mb-2">{currentMovieDetail ? `${currentMovieDetail.runtime} mins` : ""}</div>
+                        <div className="text-sm text-gray-400 mb-4">{currentMovieDetail ? `Release date: ${currentMovieDetail.release_date}` : ""}</div>
+                        <div className="flex flex-wrap mb-4">
+                            {currentMovieDetail && currentMovieDetail.genres ? (
+                                currentMovieDetail.genres.map(genre => (
+                                    <span key={genre.id} className="border-2 border-white rounded-full px-2 py-1 mr-2 mb-2 text-sm">
+                                        {genre.name}
+                                    </span>
+                                ))
+                            ) : (
+                                ""
+                            )}
+                        </div>
+                    </div>
+                    <div>
+                        <h2 className="text-xl font-bold mb-2">Synopsis</h2>
+                        <p className="text-gray-300">{currentMovieDetail ? currentMovieDetail.overview : ""}</p>
+                    </div>
+                </div>
                 <div className="flex flex-col md:flex-row justify-between mb-8">
-                   
-                    <div className="flex-col space-x-4 mt-4 ">
+                    <div className="flex-col space-x-4 mt-4">
                         <h2 className="text-2xl font-bold">Useful Links</h2>
                         {currentMovieDetail && currentMovieDetail.homepage && (
                             <a href={currentMovieDetail.homepage} target="_blank" rel="noopener noreferrer">
@@ -89,6 +95,13 @@ const Moviedetailpage = () => {
                                 <button className="bg-yellow-500 text-black font-bold py-2 px-4 rounded-lg flex items-center">
                                     IMDb<FontAwesomeIcon icon={faExternalLinkAlt} className="ml-2" />
                                 </button>
+                            </a>
+                        )}
+                        {currentMovieDetail && currentMovieDetail.videos && currentMovieDetail.videos.length > 0 && (
+                            <a onClick={() => fetchTrailer(currentMovieDetail.videos[0].key)} >
+                            <button className="bg-blue-600 text-white font-bold py-2 px-4 rounded-lg flex items-center">
+                                Watch Trailer<FontAwesomeIcon icon={faExternalLinkAlt} className="ml-2" />
+                            </button>
                             </a>
                         )}
                     </div>

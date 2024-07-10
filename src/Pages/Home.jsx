@@ -13,7 +13,7 @@ const Home = () => {
   useEffect(() => {
     fetch("https://api.themoviedb.org/3/movie/popular?api_key=c800c930b3f4ee9adb4590c3d967c485")
       .then(res => res.json())
-      .then(data => setPopularMovies(data.results.slice(0, 10))); // Limit to 8 slides
+      .then(data => setPopularMovies(data.results.slice(0, 10))); 
   }, []);
 
   const truncateText = (text, limit) => {
