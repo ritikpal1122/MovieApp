@@ -3,7 +3,9 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-import Popular from './Popular';
+import PopularMovies from './PopularMovies';
+import TopRatedMovies from './TopRatedMovies';
+import UpcomingMovies from './UpcomingMovies';
 
 const Home = () => {
   const [popularMovies, setPopularMovies] = useState([]);
@@ -59,7 +61,9 @@ const Home = () => {
           ))}
         </Carousel>
       </div>
-      <Popular/>
+      <PopularMovies/>
+      <TopRatedMovies/>
+      <UpcomingMovies/>
     </div>
   );
 }

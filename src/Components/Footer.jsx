@@ -15,18 +15,17 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Navigation Links */}
           <div className="w-full md:w-1/5 mb-6">
             <h3 className="text-lg font-bold mb-2">Navigation</h3>
             <ul>
               <li><Link to="/" className="text-gray-400 hover:text-white">Home</Link></li>
               <li><Link to="/popular" className="text-gray-400 hover:text-white">Popular</Link></li>
               <li><Link to="/toprated" className="text-gray-400 hover:text-white">Top Rated</Link></li>
+              <li><Link to="/toprated" className="text-gray-400 hover:text-white">Upcoming</Link></li>
               <li><Link to="/categories" className="text-gray-400 hover:text-white">Categories</Link></li>
             </ul>
           </div>
 
-          {/* Social Media Links */}
           <div className="w-full  md:w-1/5 mb-4">
             <h3 className="text-lg font-bold mb-2">Follow Us</h3>
             <ul className="flex-col ">

@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import Cards from "../Components/Card";
+import { getTopRatedMovies } from "../API/MovieApi";
 
-const MovieList1 = () => {
+const TopRatedMovies = () => {
     const [movieList, setMovieList] = useState([]);
-    const { type } = useParams();
 
     useEffect(() => {
-        getData();
-    }, [type]);
+        const fetchData = async () => {
+            try {
+                const data = await getTopRatedMovies();
+                setMovieList(data);
+            } catch (error) {
+                console.error('Error fetching top-rated movies:', error);
+            }
+        };
 
-    const getData = () => {
-        fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US`)
-            .then(res => res.json())
-            .then(data => setMovieList(data.results))
-            .catch(error => console.error("Error fetching movies:", error));
-    };
+        fetchData();
+    }, []);
 
     return (
         <div className="px-2 md:px-8 lg:px-16 xl:px-32 py-10 bg-gradient-to-b from-black via-gray-900 to-black bg-opacity-90">
@@ -29,4 +30,4 @@ const MovieList1 = () => {
     );
 };
 
-export default MovieList1;
+export default TopRatedMovies;

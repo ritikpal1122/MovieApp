@@ -3,12 +3,11 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
 import Home from './Pages/Home';
-import Popular from './Pages/Popular';
-import TopRated from './Pages/TopRated';
-import Categories from './Pages/Categories';
 import Moviedetailpage from './Pages/MovieDetailPage';
-import Upcoming from './Pages/Upcoming';
-import SearchResults from './Components/SearchResults';
+import PopularMovies from './Pages/PopularMovies';
+import SearchResultsPage from './Pages/SearchResultsPage'; // Import SearchResultsPage
+import TopRatedMovies from './Pages/TopRatedMovies';
+import UpcomingMovies from './Pages/UpcomingMovies';
 
 function App() {
   return (
@@ -18,13 +17,11 @@ function App() {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/popular" element={<Popular />} />
-            <Route path="/toprated" element={<TopRated />} />
-            <Route path="/upcoming" element={<Upcoming />} />
-            <Route path="/categories" element={<Categories />} />
+            <Route path="/popular" element={<PopularMovies />} />
+            <Route path="/toprated" element={<TopRatedMovies />} />
+            <Route path="/upcoming" element={<UpcomingMovies />} />
             <Route path="/movie/:id" element={<Moviedetailpage />} />
-            {/* Add route for search results */}
-            <Route path="/search/:query" element={<SearchResults />} />
+            <Route path="/search" element={<SearchResultsPage />} /> 
           </Routes>
         </main>
         <Footer />

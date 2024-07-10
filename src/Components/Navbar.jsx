@@ -1,3 +1,5 @@
+// src/components/Navbar.js
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -20,7 +22,8 @@ const Navbar = () => {
 
   const handleSearch = () => {
     console.log('Search query:', searchQuery);
-
+    // Redirect to search results page
+    // Implement your routing logic here, e.g., using react-router-dom
   };
 
   return (
@@ -34,7 +37,6 @@ const Navbar = () => {
             </Link>
           </div>
 
-     
           <div className="flex items-center md:hidden">
             <button
               onClick={toggleSearch}
@@ -54,7 +56,6 @@ const Navbar = () => {
             </button>
           </div>
 
-  
           <div className="hidden md:flex md:items-center md:space-x-4">
             {Links.map((link, index) => (
               <Link
@@ -84,7 +85,6 @@ const Navbar = () => {
         </div>
       </div>
 
-    
       {isOpen && (
         <div className="md:hidden bg-white shadow-lg py-2">
           <div className="flex flex-col  items-start px-4">
@@ -102,7 +102,6 @@ const Navbar = () => {
         </div>
       )}
 
-      {/* Mobile Search Bar */}
       {isSearchOpen && (
         <div className="md:hidden bg-white shadow-lg py-2 px-4">
           <div className="relative flex items-center">

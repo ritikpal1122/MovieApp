@@ -1,5 +1,5 @@
 import React from 'react'
-import MovieList from '../Components/MovieList'
+import MovieList from './PopularMovies'
 
 const Categories = () => {
   return (

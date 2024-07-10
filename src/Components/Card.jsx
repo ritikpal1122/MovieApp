@@ -21,7 +21,7 @@ const Cards = ({ movie }) => {
         </div>
       ) : (
         <Link to={`/movie/${movie.id}`} className="text-white underline-none">
-          <div className="inline-block relative border-2 border-gray-400 overflow-hidden rounded-lg m-2  cursor-pointer min-w-[180px] h-[260px] transform transition-transform duration-300 hover:scale-105">
+          <div className="inline-block m-0 relative border-2 border-gray-400 overflow-hidden rounded-lg m-2  cursor-pointer min-w-[180px] h-[260px] transform transition-transform duration-300 hover:scale-105">
             <img
               src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
               alt={movie.original_title}
