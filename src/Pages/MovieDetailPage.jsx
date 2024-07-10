@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getMovieDetails } from '../API/MovieApi';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
+import { faExternalLinkAlt, faStar } from "@fortawesome/free-solid-svg-icons";
+
 
 const Moviedetailpage = () => {
     const [currentMovieDetail, setMovie] = useState(null);
@@ -49,8 +50,8 @@ const Moviedetailpage = () => {
                                     <h1 className="text-3xl md:text-5xl font-bold mb-2">{currentMovieDetail ? currentMovieDetail.original_title : ""}</h1>
                                     <p className="text-lg italic mb-2">{currentMovieDetail ? currentMovieDetail.tagline : ""}</p>
                                     <div className="flex items-center mb-2">
-                                        <span className="mr-2 text-yellow-400 text-xl">{currentMovieDetail ? currentMovieDetail.vote_average : ""}</span>
-                                        <i className="fas fa-star text-yellow-400"></i>
+                                        <span className="mr-2 text-yellow-400 text-xl">{currentMovieDetail ? currentMovieDetail.vote_average.toFixed(1) : ""}</span>
+                                        <FontAwesomeIcon icon={faStar} className="text-yellow-400 ml-1" />
                                         <span className="ml-2">({currentMovieDetail ? currentMovieDetail.vote_count : ""} votes)</span>
                                     </div>
                                     <div className="text-sm text-gray-400 mb-2">{currentMovieDetail ? `${currentMovieDetail.runtime} mins` : ""}</div>
