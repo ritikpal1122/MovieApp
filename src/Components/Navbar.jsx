@@ -24,7 +24,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <Link to="/" className="flex items-center">
-              <img src={MoovieMateLogo} alt="MoovieMate Logo" className="h-10" />
+              <img src={MoovieMateLogo} alt="MoovieMate Logo" className="h-9" />
             </Link>
           </div>
 
