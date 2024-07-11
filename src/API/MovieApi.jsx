@@ -39,19 +39,6 @@ export const getUpcomingMovies = async () => {
   }
 };
 
-export const searchMovies = async (query) => {
-  try {
-    const response = await apiClient.get('/search/movie', {
-      params: {
-        query: query,
-      },
-    });
-    return response.data.results;
-  } catch (error) {
-    console.error('Error searching movies:', error);
-    throw error;
-  }
-};
 
 export const getMovieDetails = async (id) => {
   try {

@@ -5,7 +5,6 @@ import Footer from './Components/Footer';
 import Home from './Pages/Home';
 import Moviedetailpage from './Pages/MovieDetailPage';
 import PopularMovies from './Pages/PopularMovies';
-import SearchResultsPage from './Pages/SearchResultsPage'; // Import SearchResultsPage
 import TopRatedMovies from './Pages/TopRatedMovies';
 import UpcomingMovies from './Pages/UpcomingMovies';
 
@@ -21,7 +20,6 @@ function App() {
             <Route path="/toprated" element={<TopRatedMovies />} />
             <Route path="/upcoming" element={<UpcomingMovies />} />
             <Route path="/movie/:id" element={<Moviedetailpage />} />
-            <Route path="/search" element={<SearchResultsPage />} /> 
           </Routes>
         </main>
         <Footer />
