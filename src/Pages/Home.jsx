@@ -3,17 +3,25 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-import PopularMovies from './PopularMovies';
-import TopRatedMovies from './TopRatedMovies';
-import UpcomingMovies from './UpcomingMovies';
+import PopularMovies from '../Components/PopularMovies';
+import TopRatedMovies from '../Components/TopRatedMovies';
+import UpcomingMovies from '../Components/UpcomingMovies';
+import { getPopularMovies } from '../API/MovieApi';
 
 const Home = () => {
   const [popularMovies, setPopularMovies] = useState([]);
 
   useEffect(() => {
-    fetch("https://api.themoviedb.org/3/movie/popular?api_key=c800c930b3f4ee9adb4590c3d967c485")
-      .then(res => res.json())
-      .then(data => setPopularMovies(data.results.slice(0, 10))); 
+    const fetchPopularMovies = async () => {
+      try {
+        const movies = await getPopularMovies();
+        setPopularMovies(movies.slice(0, 10));
+      } catch (error) {
+        console.error("Failed to fetch popular movies", error);
+      }
+    };
+
+    fetchPopularMovies();
   }, []);
 
   const truncateText = (text, limit) => {
@@ -61,11 +69,11 @@ const Home = () => {
           ))}
         </Carousel>
       </div>
-      <PopularMovies/>
-      <TopRatedMovies/>
-      <UpcomingMovies/>
+      <UpcomingMovies />
+      <PopularMovies />
+      <TopRatedMovies />
     </div>
   );
-}
+};
 
 export default Home;

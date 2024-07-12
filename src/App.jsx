@@ -4,14 +4,15 @@ import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
 import Home from './Pages/Home';
 import Moviedetailpage from './Pages/MovieDetailPage';
-import PopularMovies from './Pages/PopularMovies';
-import TopRatedMovies from './Pages/TopRatedMovies';
-import UpcomingMovies from './Pages/UpcomingMovies';
+import PopularMovies from './Components/PopularMovies';
+import TopRatedMovies from './Components/TopRatedMovies';
+import UpcomingMovies from './Components/UpcomingMovies';
+import SearchMovie from './Components/SearchMovie';
 
 function App() {
   return (
     <Router>
-      <div className="flex flex-col min-h-screen">
+      <div className="flex flex-col min-h-screen scroll-smooth">
         <Navbar />
         <main className="flex-grow">
           <Routes>
@@ -20,9 +21,11 @@ function App() {
             <Route path="/toprated" element={<TopRatedMovies />} />
             <Route path="/upcoming" element={<UpcomingMovies />} />
             <Route path="/movie/:id" element={<Moviedetailpage />} />
+            <Route path="/search" element={<SearchMovie />} /> 
+           
           </Routes>
         </main>
-        <Footer />
+        <Footer/>
       </div>
     </Router>
   );

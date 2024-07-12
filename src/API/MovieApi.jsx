@@ -1,11 +1,10 @@
 import axios from 'axios';
-import { API_KEY, BASE_URL, LANGUAGE } from './Config'; 
+import { API_KEY, BASE_URL } from './Config';
 
 const apiClient = axios.create({
   baseURL: BASE_URL,
   params: {
     api_key: API_KEY,
-    language: LANGUAGE,
   },
 });
 
@@ -39,12 +38,27 @@ export const getUpcomingMovies = async () => {
   }
 };
 
+export const searchMovies = async (query) => {
+  try {
+    const response = await apiClient.get('/search/movie', {
+      params: {
+        query: query,
+        include_adult: false,
+        page: 1,
+      },
+    });
+    return response.data.results;
+  } catch (error) {
+    console.error('Error searching movies:', error);
+    throw error;
+  }
+};
 
 export const getMovieDetails = async (id) => {
   try {
     const [movieDetailsResponse, videosResponse] = await Promise.all([
       apiClient.get(`/movie/${id}`),
-      apiClient.get(`/movie/${id}/videos`)
+      apiClient.get(`/movie/${id}/videos`),
     ]);
 
     const movieDetails = movieDetailsResponse.data;

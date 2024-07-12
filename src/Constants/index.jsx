@@ -4,7 +4,5 @@ export const Links = [
     { name: 'POPULAR', link: '/popular' },
     { name: 'TOP RATED', link: '/toprated' },
     { name: 'UPCOMING', link: '/upcoming' },
-    { name: 'CATEGORIES', link: '/categories' },
-    
   ];
   

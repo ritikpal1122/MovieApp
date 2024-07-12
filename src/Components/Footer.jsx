@@ -48,7 +48,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="border-t border-gray-700 pt-4 text-center">
-          <p className="text-gray-400">&copy; 2024 MoovieMate. All rights reserved.</p>
+          <p className="text-gray-400">&copy; 2024 MoovieMate By <a href="https://arpitbhatia.vercel.app/" className='underline-none text-white'>Arpit Bhatia</a> All rights reserved.</p>
         </div>
       </div>
     </footer>
