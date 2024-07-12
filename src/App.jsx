@@ -12,7 +12,7 @@ import SearchMovie from './Components/SearchMovie';
 function App() {
   return (
     <Router>
-      <div className="flex flex-col min-h-screen scroll-smooth">
+      <div className="flex flex-col min-h-screen !scroll-smooth">
         <Navbar />
         <main className="flex-grow">
           <Routes>
