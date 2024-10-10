@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import MoovieMateLogo from '../assets/MoovieMate.png';
+import MoovieMateLogo from '../assets/mmm2.png';
 
 
 const Footer = () => {
@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex flex-wrap justify-between">
           <div className="w-full md:w-1/4 mb-4">
-          <img src={MoovieMateLogo} alt="MoovieMate Logo" className="h-10" />
+          <span className='text-3xl'>Master <span className='text-red-600'>Movie</span> </span>
             <p className="text-gray-400">
               MoovieMate is your go-to source for the latest movies, reviews, and streaming content. Enjoy a world of entertainment at your fingertips.
             </p>
@@ -48,7 +48,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="border-t border-gray-700 pt-4 text-center">
-          <p className="text-gray-400">&copy; 2024 MoovieMate By <a href="https://arpitbhatia.vercel.app/" className='underline-none text-white'>Arpit Bhatia</a> All rights reserved.</p>
+          <p className="text-gray-400">&copy; 2024 MoovieMate By <a href="https://ritik-portfolio-two.vercel.app/" className='underline-none text-white'>Ritik Pal</a> All rights reserved.</p>
         </div>
       </div>
     </footer>

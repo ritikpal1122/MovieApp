@@ -1,6 +1,8 @@
-# React + Vite
-
+# Movie App
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+
+Connet with me On : https://www.linkedin.com/in/ritikpal/
 
 Currently, two official plugins are available:
 

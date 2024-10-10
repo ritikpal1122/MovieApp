@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
-import MoovieMateLogo from '../assets/MoovieMate.png';
+import MoovieMateLogo from '../assets/mmm.png';
+
 import { Links } from '../Constants';
 
 const Navbar = () => {
@@ -32,7 +33,7 @@ const Navbar = () => {
         <div className="flex justify-between h-20">
           <div className="flex-shrink-0 flex items-center">
             <Link to="/" className="flex items-center">
-              <img src={MoovieMateLogo} alt="MoovieMate Logo" className="h-9" />
+              <img src={MoovieMateLogo} alt="MoovieMate Logo" className="h-28" />
             </Link>
           </div>
 
